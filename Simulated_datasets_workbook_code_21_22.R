@@ -1,6 +1,6 @@
 #########################################################
 #        Demystifying statistics & programming in R     #
-#            Neil Burns © 2021-2022                     #
+#            Neil Burns Â© 2021-2022                     #
 #########################################################
 
 ########################################################
@@ -22,14 +22,14 @@ rm(list=ls()) ######## run this to clear all data and values from R's memory. It
 # of the Montane unicorn (you can read about their distribution here - https://doi.org/10.2307/3545216)
 # to a frightening stimulus. We speculate that their mass and the type of diet the consume may affect the level
 # of response. Mass is measured in kg and is similar to other equids (ie 400 - 700 kg). One of two diets was
-# fed to randomly selected animals, one high in starch and the other high in fiber.
+# fed to randomly selected animals, one high in starch and the other high in fibre.
 
 ## Experiment 1 measured how bold the animals were when confronted with a sudden loud sound as the stimulus
 
 ## The following code specifies our sample number (ie the number of unicorns) and then generates the data. 
 samp<- 60
 mass<- rnorm(n = samp, mean = c(530, 630) , sd = 75)
-diet = as.factor(rep(c('hi-starch', 'hi-fiber'), length.out = samp))
+diet = as.factor(rep(c('hi-starch', 'hi-fibre'), length.out = samp))
 boldness<-  rnorm(samp, 1100, 4) + rnorm(n = samp, mean = mass, sd = 14)+ rnorm(samp, 0, 40)
 behave_data<- data.frame(mass, diet, boldness)
 
@@ -86,8 +86,8 @@ rm(list=ls())
 samp=200
 set.seed(16777) # this just ensures we all get the same set of numbers during the class
 masses<- rnorm(n = samp, mean = 550, sd = 75)
-diet <- as.factor(rep(c('hi-fiber', 'hi-starch'), length.out=samp))
-diet.num = as.numeric(as.factor(rep(c('hi-fiber', 'hi-starch'), length.out = samp)))
+diet <- as.factor(rep(c('hi-fibre', 'hi-starch'), length.out=samp))
+diet.num = as.numeric(as.factor(rep(c('hi-fibre', 'hi-starch'), length.out = samp)))
 dat<- data.frame('mass' = masses, 'diet'= diet, 'diet.num' = diet.num) # it is stored in the "dat" data frame
 
 ## The following code develops the modeled relationships between the explanatory variables and
@@ -124,7 +124,7 @@ summary(mod1)
 # it is much easier to use model predictions to explore (and help validate) what our model says.
 
 
-new_dat<- data.frame(expand.grid(mass=seq(350, 750), diet=as.factor(c('hi-fiber', 'hi-starch'))))
+new_dat<- data.frame(expand.grid(mass=seq(350, 750), diet=as.factor(c('hi-fibre', 'hi-starch'))))
 
 
 
@@ -133,7 +133,7 @@ up<- preds$fit+ (1.96*preds$se.fit)
 lo<- preds$fit- (1.96*preds$se.fit)
 preds<- cbind(new_dat, preds, up, lo)
 
-diet1<- subset(preds, preds$diet=="hi-fiber")
+diet1<- subset(preds, preds$diet=="hi-fibre")
 diet2<- subset(preds, preds$diet=="hi-starch")
 
 lines(fit~mass, data=diet1, lwd=4, col='dodgerblue4')
@@ -162,7 +162,7 @@ samp=60
 
 masses<- rnorm(n = samp, mean = 550, sd = 75)
 feed.behav<- rnorm(n = samp, mean = c(15,20), sd = c(0.6,0.7)) + rnorm(samp, 0, 2.3)
-diet <- as.factor(rep(c('hi-fiber', 'hi-starch'), length.out=samp))
+diet <- as.factor(rep(c('hi-fibre', 'hi-starch'), length.out=samp))
 dat2<- data.frame('mass' = masses, 'diet'= diet) # it is stored in the "dat2" data frame
 
 # the behavioral response variable , "feed.behav," which is a timed (in s) behavioral response to the stimulus
