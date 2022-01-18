@@ -147,9 +147,9 @@ lines(up~mass, data=diet2, lwd=2, col='firebrick4', lty=2)
 
 
 
-###############################################
-#### Data set 3 - for practice            ####
-###############################################
+                      ###############################################
+                      #### Data set 3 - for practice            ####
+                      ###############################################
 
 ###### As before clear the memory of previous data and variables
 rm(list=ls())
