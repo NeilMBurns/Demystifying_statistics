@@ -121,7 +121,9 @@ plot(Order.test, dat$shark_per_h)
  mod_null<- glm(shark_per_h~1, data=dat, family=gaussian)
  
  AIC(mod3, mod_null)
+ par(mfrow= c(2,2))
  plot(mod3)
+ par(mfrow= c(1,1))
 
 
 
